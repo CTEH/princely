@@ -27,7 +27,7 @@ module PdfHelper
     # Sets style sheets on PDF renderer
     prince.add_style_sheets(*options[:stylesheets].collect{|style| stylesheet_file_path(style)})
 
-    html_string = render_to_string(:template => options[:template], :layout => options[:layout])
+    html_string = render_to_string(:template => options[:template], :layout => options[:layout], :format => [:pdf])
 
     # Make all paths relative, on disk paths...
     html_string.gsub!(".com:/",".com/") # strip out bad attachment_fu URLs
@@ -48,8 +48,7 @@ module PdfHelper
     send_data(
       make_pdf(options),
       :filename => pdf_name + ".pdf",
-      :type => 'application/pdf',
-      :format => [:pdf]
+      :type => 'application/pdf'
     )
   end
 
