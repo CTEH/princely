@@ -48,7 +48,8 @@ module PdfHelper
     send_data(
       make_pdf(options),
       :filename => pdf_name + ".pdf",
-      :type => 'application/pdf'
+      :type => 'application/pdf',
+      :format => [:pdf]
     )
   end
 
