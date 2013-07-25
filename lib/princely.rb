@@ -34,9 +34,9 @@ class Princely
       @exe_path = 'which prince'.chomp
     end
     raise "Cannot find prince command-line app in $PATH" if @exe_path.length == 0
-  	@style_sheets = ''
-  	@log_file = "#{Rails.root}/log/prince.log"
-  	@logger = Rails.logger
+    @style_sheets = ''
+    @log_file = "#{Rails.root}/log/prince.log"
+    @logger = Rails.logger
   end
 
   # Sets stylesheets...
